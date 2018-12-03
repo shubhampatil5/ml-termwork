@@ -27,23 +27,3 @@ print(metrics.classification_report(X_test.target, predicted, target_names=X_tes
 
 print(metrics.confusion_matrix(X_test.target, predicted))
 
-"""
-Output
-
- 0.8348868175765646
-                        precision    recall  f1-score   support
-
-           alt.atheism       0.97      0.60      0.74       319
-         comp.graphics       0.96      0.89      0.92       389
-               sci.med       0.97      0.81      0.88       396
-soc.religion.christian       0.65      0.99      0.78       398
-
-             micro avg       0.83      0.83      0.83      1502
-             macro avg       0.89      0.82      0.83      1502
-          weighted avg       0.88      0.83      0.84      1502
-
-[[192   2   6 119]
- [  2 347   4  36]
- [  2  11 322  61]
- [  2   2   1 393]]
-"""

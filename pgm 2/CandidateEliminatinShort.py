@@ -9,33 +9,27 @@ data = []
 print("\nThe given training examples are:")
 for row in readCsv:
     print(row)
-    # if row[len(row) - 1].upper() == "YES":
     data.append(row)
-# print("\nThe positive examples are:", data[0:])
-# print("The steps of the Find-s algorithm are\n", hypo)
 d = len(data[0]) - 1
 s = data[0][:d]
 for i in range(len(data)):
     if data[i][-1] == 'Y':
-        for k in range(d):
-            if s[k] != data[i][k]:
-                s[k] = '?'
-        for i in range(len(g)):
-            for j in range(d):
-                if g[i][j] != '?' and g[i][j] != s[j]:
-                    g.pop(i)
+        for j in range(d):
+            if s[j] != data[i][j]:
+                s[j] = '?'
+        for j in range(len(g)):
+            for k in range(d):
+                if g[j][k] != '?' and g[j][k] != s[k]:
+                    g.pop(j)
     else:
-        for k in range(d):
-            if s[k] != '?' and s[k] != data[i][k]:
-                t[k] = s[k]
+        for j in range(d):
+            if s[j] != '?' and s[j] != data[i][j]:
+                t[j] = s[j]
                 g.append(t[:])
                 t[:] = g0[:]
-        for i in range(len(g)):
-            for j in range(d):
-                if g[i][j] != '?' and g[i][j] != s[j]:
+        for j in range(len(g)):
+            for k in range(d):
+                if g[j][k] != '?' and g[j][k] != s[k]:
                     g.pop(i)
-
-print("s: ",s)
-print("g: ",g)
-#
-# print("\nThe maximally specific Find-s hypothesis for the given training examples is", hypo);
+    print("s["+str(i)+"]: ",s)
+    print("g["+str(i)+"]: ",g)
