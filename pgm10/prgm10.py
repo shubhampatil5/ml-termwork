@@ -11,6 +11,7 @@ X_train = np.array(list(range(3, 33)) + [3.2, 6.2])
 print(X_train)
 X_train = X_train[:, np.newaxis]
 print(len(X_train))
+
 y_train = np.array([1, 2, 1, 2, 1, 1, 3, 4, 5, 4, 1, 10, 6, 4, 4, 5, 7, 2, 8, 9, 1, 12, 10, 5, 7, 8, 3, 5, 2, 9, 10, 4])
 
 X_test = np.array([i / 10 for i in range(400)])
@@ -34,6 +35,5 @@ for r in range(len(X_test)):
 print(len(y_test))
 y_test = np.array(y_test)
 plt.plot(X_train.squeeze(), y_train, 'o')
-
 plt.plot(X_test.squeeze(), y_test, 'o')
 plt.show()

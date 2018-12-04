@@ -7,12 +7,10 @@ library classes/API in the program.
 from sklearn import datasets, metrics
 from sklearn.cluster import KMeans
 from sklearn.mixture import GaussianMixture
-
 import matplotlib.pyplot as plt
 import pandas as pd
 
 dataset = datasets.load_iris()
-
 X = pd.DataFrame(dataset.data)
 y = pd.DataFrame(dataset.target)
 model = KMeans(n_clusters=3)
@@ -23,6 +21,7 @@ plt.figure()
 plt.subplot(3, 2, 1)
 plt.scatter(X.iloc[:, 0], X.iloc[:, 1], c=y.iloc[:, 0], s=10, cmap='viridis')
 plt.title("Actual Classification - Sepal")
+
 plt.subplot(3, 2, 2)
 plt.scatter(X.iloc[:, 0], X.iloc[:, 1], c=model.labels_, s=10, cmap='viridis')
 plt.title("K-Means Classification - Sepal")
@@ -30,6 +29,7 @@ plt.title("K-Means Classification - Sepal")
 plt.subplot(3, 2, 3)
 plt.scatter(X.iloc[:, 2], X.iloc[:, 3], c=y.iloc[:, 0], s=10, cmap='viridis')
 plt.title("Actual Classification - Petal")
+
 plt.subplot(3, 2, 4)
 plt.scatter(X.iloc[:, 2], X.iloc[:, 3], c=model.labels_, s=10, cmap='viridis')
 plt.title("K-Means Classification - Petal")
@@ -44,9 +44,11 @@ y_predict = gmm.predict(X)
 plt.subplot(3, 2, 5)
 plt.scatter(X.iloc[:, 2], X.iloc[:, 3], c=y.iloc[:, 0], s=10, cmap='viridis')
 plt.title("Actual Classification - Petal")
+
 plt.subplot(3, 2, 6)
 plt.scatter(X.iloc[:, 2], X.iloc[:, 3], c=y_predict, s=10, cmap='viridis')
 plt.title("GMM Classification - Petal")
+
 print('GMM Accuracy : ', metrics.accuracy_score(y, y_predict))
 print("Confusion Matrix : \n", metrics.confusion_matrix(y, y_predict))
 plt.show()

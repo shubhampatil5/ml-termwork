@@ -4,9 +4,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import datasets
 from sklearn.metrics import classification_report, confusion_matrix
 
-# Load dataset
 iris=datasets.load_iris()
-#print(iris)
 print("Iris Data set loaded...")
 
 # Split the data into train and test samples
@@ -37,5 +35,6 @@ print("Classification Accuracy :" , classifier.score(x_test,y_test));
 
 print('Confusion Matrix')
 print(confusion_matrix(y_test,y_pred))
+
 print('Accuracy Metrics')
 print(classification_report(y_test,y_pred))
